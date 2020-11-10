@@ -34,8 +34,9 @@ class ViewController: UIViewController {
                 return
             }
             
-            //MARK: Convertendo os dados
             var resposta: Resposta?
+            
+            //MARK: Convertendo os dados
             do {
                 resposta = try JSONDecoder().decode(Resposta.self, from: dadosRecebidos)
             } catch {
@@ -48,28 +49,13 @@ class ViewController: UIViewController {
                 return
             }
             
-            print("Status da requisição: \(valoresConvertidos.status)")
-            print("Horario que o sol nasce: \(valoresConvertidos.results.sunrise)")
-            print("Horario que vai anoitecer: \(valoresConvertidos.results.sunset)")
-            print("Sol da noite ai 😂 \(valoresConvertidos.results.solar_noon)")
-            
             DispatchQueue.main.async {
                 self.sunset.text = valoresConvertidos.results.sunset
                 self.sunrise.text = valoresConvertidos.results.sunrise
             }
+            
         }.resume()
     }
-}
-
-struct Resposta: Codable {
-    var results: InfoResults
-    var status: String
-}
-
-struct InfoResults: Codable {
-    var sunrise: String
-    var sunset: String
-    var solar_noon: String
 }
 
 //{
