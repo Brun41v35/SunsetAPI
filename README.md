@@ -7,7 +7,7 @@ Through this repository, i used for a study about API and used this API: https:/
 ## Project architecture
 
 - Architecture: MVC
-- Used the library SF Symbols about images.
+- i used the SF Symbols library for the images.
 
 ## Thats it
 
